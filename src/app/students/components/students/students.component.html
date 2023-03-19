@@ -1,0 +1,74 @@
+
+<h1 class="is-size-3">Студенты</h1>
+
+<div class="columns">
+
+  <!-- ---ГЛОБАЛЬНАЯ ФИЛЬТРАЦИЯ--- -->
+  <div class="column is-pulled-right">
+    <input class="input ds-input" type="text" placeholder="поиск">
+  </div>
+  <!-- ---ГЛОБАЛЬНАЯ ФИЛЬТРАЦИЯ--- -->
+
+  <!-- ---ФИЛЬТРАЦИЯ в модальном окне-- -->
+  <div class="column is-narrow">
+    <div class="buttons has-addons is-left">
+      <a class="button is-primary">
+        <span>Фильтр</span>
+        <span class="icon is-small">
+                        <i class="fa-solid fa-filter"></i>
+                    </span>
+      </a>
+    </div>
+  </div>
+  <!-- КОНЕЦ---ФИЛЬТРАЦИЯ в модальном окне-- -->
+
+  <div class="column">
+    <div class="buttons has-addons is-left">
+      <a class="button is-primary" [title]="'очистить фильтр'">
+      <span class="icon is-small">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-striped">
+  <thead>
+  <tr>
+    <th class="is-vcentered">reg_num</th>
+    <th class="is-vcentered">ФИО</th>
+    <th class="is-vcentered">Номер группы</th>
+    <th class="is-vcentered">Курс</th>
+    <th class="is-vcentered">Специальность</th>
+    <th class="is-vcentered">Квалификация</th>
+    <th class="is-vcentered"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="reg_num"></td>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="ФИО"></td>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="Номер группы"></td>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="Курс"></td>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="Специальность"></td>
+    <td class="is-vcentered"><input class="input" type="text" placeholder="Квалификация"></td>
+    <td class="is-vcentered">
+      <div class="buttons has-addons is-left">
+        <a class="button is-primary"><span>ОТФИЛЬТРОВАТЬ</span></a>
+      </div>
+    </td>
+  </tr>
+
+  <tr *ngFor="let student of students">
+    <td class="is-vcentered">{{student.reg_num}}</td>
+    <td class="is-vcentered"><a routerLink="/students/detail/{{student.student_id}}"><span>{{student.fio}}</span></a></td>
+    <td class="is-vcentered">{{student.group_name}}</td>
+    <td class="is-vcentered">{{student.kurs}}</td>
+    <td class="is-vcentered">{{student.spec_name}}</td>
+    <td class="is-vcentered">{{student.qualification_name}}</td>
+    <td class="is-vcentered has-text-right">
+    </td>
+  </tr>
+  </tbody>
+</table>

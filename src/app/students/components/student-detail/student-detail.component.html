@@ -1,0 +1,6 @@
+<button type="button" (click)="goBack()">Назад</button>
+<div *ngIf="students">
+  <p>student_id: {{students.student_id}}</p>
+  <label for="fio">ФИО: </label>
+  <input id="fio" [(ngModel)]="students.fio" placeholder="fio">
+</div>

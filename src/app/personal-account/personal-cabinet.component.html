@@ -1,0 +1,9 @@
+<div>
+  <app-admin *ngIf="currentRole == 'ADMIN'"></app-admin>
+  <app-teacher *ngIf="currentRole =='TEACHER'"></app-teacher>
+  <app-students *ngIf="currentRole == 'STUDENT'"></app-students>
+  <div *ngIf="currentRole == ''">
+    <p>Sorry, there are some problems with your role.</p>
+    <p>please relogin: <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" >Log In</a></p>
+  </div>
+</div>

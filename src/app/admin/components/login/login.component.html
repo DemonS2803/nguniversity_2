@@ -1,0 +1,58 @@
+<div class="columns is-centered">
+  <div class="column is-11-tablet is-10-desktop is-10-widescreen is-10-fullhd" >
+
+    <section class="section">
+      <div class="container has-text-centered">
+
+        <img src="../assets/img/logo.png" alt="">
+
+      </div>
+    </section>
+
+    <form method="post" *ngIf="!isRoleChoosed">
+      <div class="columns">
+        <div class="column is-one-third" >
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" id="login" name="login" [(ngModel)]="login" placeholder="Login">
+              <span class="icon is-small is-left">
+        <i class="fa-solid fa-user"></i>
+      </span>
+
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password">
+              <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <button class="button is-success" (click)="sendAuthRequest()">
+                Войти
+              </button>
+            </p>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
+    </form>
+
+    <div class="columns">
+      <div class="column is-one-third" >
+        <form method="post" *ngIf="isRoleChoosed">
+          <div class="field">
+            <select  name="category" [(ngModel)]="role">
+              <option value="" *ngFor="let chosenRole of rolesToChoose"
+                      [value]="chosenRole"> {{ chosenRole }} </option>
+            </select>
+          </div>
+          <button class="button is-success" (click)="sendChooseRoleRequest()" >Chose Role</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

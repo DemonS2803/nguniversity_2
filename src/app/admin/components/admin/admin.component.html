@@ -1,0 +1,32 @@
+<p>{{mainText}}</p>
+
+
+<div *ngIf="isRightRole">
+  <form method="post">
+    <input type="text" id="reg_num" name="reg_num" placeholder="reg_num" [(ngModel)]="reg_num"><br>
+    <input type="text" id="position" name="fio" placeholder="Position" [(ngModel)]="position"><br>
+    <input type="text" id="name" name="fio" placeholder="Name" [(ngModel)]="name"><br>
+    <input type="text" id="surname" name="fio" placeholder="Surname" [(ngModel)]="surname"><br>
+    <input type="text" id="patronymic" name="fio" placeholder="Patronymic" [(ngModel)]="patronymic"><br>
+    <input type="text" id="pol" name="pol" placeholder="Pol" [(ngModel)]="pol"><br>
+    <input type="text" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="birthday"><br>
+    <button (click)="postFilterMethod()">post method</button>
+  </form>
+  <br>
+  <h2>Filtered persons</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ФИО</th>
+      <th>Должность</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let employer of filteredPersons">
+      <td> {{employer.fio}} </td>
+      <td> {{employer.position}} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
