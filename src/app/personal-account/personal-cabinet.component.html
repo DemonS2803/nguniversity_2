@@ -1,3 +1,20 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" xmlns="http://www.w3.org/1999/html">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" >Home         </a>
+    <a class="nav-item nav-link" routerLink="/account" routerLinkActive="active" >PersonalAccount         </a>
+    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" >Log In         </a>
+    <div class="dropdown" *ngIf="canChangeRole" >
+      <div class>
+        <select  name="category" [(ngModel)]="currentRole">
+          <option value="" *ngFor="let chosenRole of rolesToChoose"
+                  [value]="chosenRole"> {{ chosenRole }} </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
 <div>
   <app-admin *ngIf="currentRole == 'ADMIN'"></app-admin>
   <app-teacher *ngIf="currentRole =='TEACHER'"></app-teacher>

@@ -16,15 +16,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private router: Router) {
+    this.isRoleChoosed = false;
+    this.rolesToChoose = [];
   }
 
 
   login: string = "";
   password: string = "";
   role: string = "";
-  rolesToChoose: string[] = [];
+  rolesToChoose: string[];
   token: string = "";
-  isRoleChoosed: boolean = false;
+  isRoleChoosed: boolean;
 
   ngOnInit(): void {
 
@@ -43,21 +45,20 @@ export class LoginComponent implements OnInit {
       {
         next: ((response: any) => {
           console.log(response)
+          this.token = response.user.token;
+          localStorage.setItem("token", response.user.token);
           if (!response.needToChooseRole) {
-            this.token = response.user.token;
-            localStorage.setItem("token", response.user.token)
-            localStorage.setItem("currentRole", response.roles)
-
-            console.log(this.token);
+            console.log('success login as ' + response.user.login);
+            localStorage.setItem("canChangeRole", "false")
+            localStorage.setItem("currentRole", response.roles[0])
+            this.router.navigate(["account"]);
           } else {
-            console.log(response);
             this.isRoleChoosed = true;
-            this.token = response.user.token;
-            localStorage.setItem("token", response.user.token)
-            localStorage.setItem("currentRole", "Not chosen")
             this.rolesToChoose = response.roles;
+            localStorage.setItem("canChangeRole", "true");
+            localStorage.setItem("rolesToChoose", JSON.stringify(this.rolesToChoose));
             console.log(this.rolesToChoose);
-            console.log(response.token)
+            console.log(response.user.login + " choose role to work with")
           }
         }),
         error: (error => {
@@ -69,32 +70,9 @@ export class LoginComponent implements OnInit {
   }
 
   sendChooseRoleRequest() {
-    let chosenRole = new ChosenRoleDto(this.role);
-    console.log(chosenRole);
-    console.log(localStorage.getItem("token") || "")
-    this.http.post<any>(environment.backendURL + "/api/auth/choose_role", JSON.stringify(chosenRole), {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Authorization': localStorage.getItem("token") || ""
-      }
-    }).subscribe(
-      {
-        next: ((response: any) => {
-          console.log(this.token);
-          console.log(response.token);
-          console.log("success");
-          this.token = response.token;
-          localStorage.setItem("token", response.token)
-          localStorage.setItem("currentRole", response.role)
-          this.router.navigate(["home"]);
-        }),
-        error: ((error: any) => {
-          console.log(error);
-        })
-      }
-    )
+    console.log(this.role);
+    localStorage.setItem("currentRole", this.role)
+    this.router.navigate(["account"]);
   }
 
 }

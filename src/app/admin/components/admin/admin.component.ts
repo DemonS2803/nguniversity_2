@@ -69,6 +69,7 @@ export class AdminComponent implements OnInit {
       {
         next: ((response: any) => {
           console.log(response)
+          this.filteredPersons = [];
           for (let personItem of response) {
             const employer = Object.assign(new Employer(), personItem);
             this.filteredPersons.push(employer);
