@@ -1,0 +1,51 @@
+[
+  {
+    "name": "home",
+    "href": "/home",
+    "innerMenu": []
+  },
+  {
+    "name": "account",
+    "href": "/account",
+    "innerMenu": []
+  },
+  {
+    "name": "login",
+    "href": "/login",
+    "innerMenu": []
+  },
+  {
+    "name": "actions",
+    "href": "/home",
+    "innerMenu": [
+      {
+        "name": "act1",
+        "href": "/act1",
+        "innerMenu": []
+      },
+      {
+        "name": "act2",
+        "href": "/act2",
+        "innerMenu": [
+          {
+            "name": "innerAct1",
+            "href": "/innerAct1"
+          },
+          {
+            "name": "innerAct2",
+            "href": "/innerAct2"
+          },
+          {
+            "name": "innerAct3",
+            "href": "/innerAct3"
+          }
+        ]
+      },
+      {
+        "name": "act3",
+        "href": "/act3",
+        "innerMenu": []
+      }
+    ]
+  }
+]

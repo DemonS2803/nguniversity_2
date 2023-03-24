@@ -1,19 +1,37 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3" xmlns="http://www.w3.org/1999/html">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" >Home         </a>
-    <a class="nav-item nav-link" routerLink="/account" routerLinkActive="active" >PersonalAccount         </a>
-    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" >Log In         </a>
-    <div class="dropdown" *ngIf="canChangeRole" >
-      <div class>
-        <select  name="category" [(ngModel)]="currentRole">
-          <option value="" *ngFor="let chosenRole of rolesToChoose"
-                  [value]="chosenRole"> {{ chosenRole }} </option>
-        </select>
-      </div>
-    </div>
-  </div>
-</nav>
+<!--<nav class="navbar navbar-expand navbar-dark bg-dark px-3" xmlns="http://www.w3.org/1999/html">-->
+<!--  <div class="navbar-nav">-->
+<!--    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" >Home         </a>-->
+<!--    <a class="nav-item nav-link" routerLink="/account" routerLinkActive="active" >PersonalAccount         </a>-->
+<!--    <div class="dropdown" *ngIf="canChangeRole" >-->
+<!--      <div class>-->
+<!--        <select  name="category" [(ngModel)]="currentRole">-->
+<!--          <option value="" *ngFor="let chosenRole of rolesToChoose"-->
+<!--                  [value]="chosenRole"> {{ chosenRole }} </option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" >           Log In         </a>-->
 
+<!--  </div>-->
+<!--</nav>-->
+<nav class="navbar-nav">
+  <ul class="topmenu" style="display: inline" *ngFor="let navItem of navList">
+    <li><a href="{{navItem.href}}">{{navItem.name}}</a>
+      <ul class="submenu" *ngIf="navItem.innerMenu">
+        <li *ngFor="let innerNavItem of navItem.innerMenu">
+          <a href="{{innerNavItem.href}}">{{innerNavItem.name}}</a>
+          <ul class="submenu" *ngIf="innerNavItem.innerMenu">
+            <li *ngFor="let secondInnerNavItem of innerNavItem.innerMenu">
+              <a href="{{secondInnerNavItem.href}}">{{secondInnerNavItem.name}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+
+  </ul>
+</nav>
 
 <div>
   <app-admin *ngIf="currentRole == 'ADMIN'"></app-admin>

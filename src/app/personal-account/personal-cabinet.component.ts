@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import nav from "./nav.json";
+import {Nav1LevelModel} from "../models/nav-1-level-model";
 
 @Component({
   selector: 'app-personal-account',
@@ -8,6 +10,9 @@ import {environment} from "../../environments/environment";
   styleUrls: ['./personal-cabinet.component.css']
 })
 export class PersonalAccountComponent implements OnInit {
+
+  // хз че за анноун
+  navList = nav;
 
   currentRole: string = localStorage.getItem('currentRole') || "";
   canChangeRole: boolean = JSON.parse(localStorage.getItem("canChangeRole") || "false");
@@ -35,7 +40,7 @@ export class PersonalAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log(this.navList)
   }
 
 }
