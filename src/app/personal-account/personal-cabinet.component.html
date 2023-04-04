@@ -14,22 +14,22 @@
 
 <!--  </div>-->
 <!--</nav>-->
+
+
 <nav class="navbar-nav">
   <ul class="topmenu" style="display: inline" *ngFor="let navItem of navList">
-    <li><a href="{{navItem.href}}">{{navItem.name}}</a>
-      <ul class="submenu" *ngIf="navItem.innerMenu">
-        <li *ngFor="let innerNavItem of navItem.innerMenu">
-          <a href="{{innerNavItem.href}}">{{innerNavItem.name}}</a>
-          <ul class="submenu" *ngIf="innerNavItem.innerMenu">
-            <li *ngFor="let secondInnerNavItem of innerNavItem.innerMenu">
-              <a href="{{secondInnerNavItem.href}}">{{secondInnerNavItem.name}}</a>
+    <li><a href="{{navItem['link']}}">{{navItem['menu_item']}}</a>
+      <ul class="submenu" *ngIf="navItem['level']">
+        <li *ngFor="let innerNavItem of navItem['level']">
+          <a href="{{innerNavItem['link']}}">{{innerNavItem['menu_item']}}</a>
+          <ul class="submenu" *ngIf="innerNavItem['level']">
+            <li *ngFor="let secondInnerNavItem of innerNavItem['level']">
+              <a href="{{secondInnerNavItem['link']}}">{{secondInnerNavItem['menu_item']}}</a>
             </li>
           </ul>
         </li>
       </ul>
     </li>
-
-
   </ul>
 </nav>
 

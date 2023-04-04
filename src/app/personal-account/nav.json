@@ -1,51 +1,37 @@
 [
-  {
-    "name": "home",
-    "href": "/home",
-    "innerMenu": []
-  },
-  {
-    "name": "account",
-    "href": "/account",
-    "innerMenu": []
-  },
-  {
-    "name": "login",
-    "href": "/login",
-    "innerMenu": []
-  },
-  {
-    "name": "actions",
-    "href": "/home",
-    "innerMenu": [
-      {
-        "name": "act1",
-        "href": "/act1",
-        "innerMenu": []
-      },
-      {
-        "name": "act2",
-        "href": "/act2",
-        "innerMenu": [
-          {
-            "name": "innerAct1",
-            "href": "/innerAct1"
-          },
-          {
-            "name": "innerAct2",
-            "href": "/innerAct2"
-          },
-          {
-            "name": "innerAct3",
-            "href": "/innerAct3"
-          }
-        ]
-      },
-      {
-        "name": "act3",
-        "href": "/act3",
-        "innerMenu": []
-      }
-    ]
+  {"menu": [
+    {"menu_item":"Журналы",
+      "link":"url_1",
+      "sorted":"1",
+      "level":[
+        {"menu_item":"Журнал студентов","link":"url_1_1","sorted":"1"} ,
+        {"menu_item":"Журнал групп","link":"url_1_2","sorted":"2"} ,
+        {"menu_item":"Журнал групп ДПК","link":"url_1_3","sorted":"3"} ,
+        {"menu_item":"Журнал соискателей","link":"url_1_4","sorted":"4"} ,
+        {"menu_item":"Журнал отчетов","link":"url_1_5","sorted":"5"}
+      ]
+    } ,
+    {"menu_item":"Программы и стандарты",
+      "link":"url_2",
+      "sorted":"2",
+      "level":[
+        {"menu_item":"Учебные планы",
+          "link":"url_2_1",
+          "sorted":"1"
+        } ,
+        {"menu_item":"НАГРУЗКА",
+          "link":"url_2_2",
+          "sorted":"2",
+          "level":[
+            {"menu_item":"Выписка из рабочих учебных планов",
+              "link":"url_3_1",
+              "sorted":"1"}
+          ]
+        }
+      ]
+    } ,
+    {"menu_item":"Диссертационный совет",
+      "link":"url_4",
+      "sorted":"4"}]
   }
 ]
