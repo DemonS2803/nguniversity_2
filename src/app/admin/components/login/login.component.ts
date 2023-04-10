@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {AuthUserDto} from "../../../models/auth-user-dto";
+import {AuthUserDto} from "../../models/auth-user-dto";
 import {environment} from "../../../../environments/environment";
-import {ChosenRoleDto} from "../../../models/chosen-role-dto";
+import {ChosenRoleDto} from "../../models/chosen-role-dto";
 import {Router} from "@angular/router";
 
 
