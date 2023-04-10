@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Employer} from "../../../models/employer";
+import {Employer} from "../../models/employer";
 import {environment} from "../../../../environments/environment";
-import {FilterRequestDto} from "../../../models/filter-request-dto";
+import {FilterRequestDto} from "../../models/filter-request-dto";
 
 @Component({
   selector: 'app-admin',

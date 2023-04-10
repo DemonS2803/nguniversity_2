@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../../environments/environment";
 import nav from "./nav.json";
-import {Nav1LevelModel} from "../models/nav-1-level-model";
+import {Nav1LevelModel} from "../../models/nav-1-level-model";
 
 @Component({
   selector: 'app-personal-account',

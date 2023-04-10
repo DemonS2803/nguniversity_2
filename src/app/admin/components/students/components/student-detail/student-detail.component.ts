@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 //import {STUDENTS} from "../../../models/mock-stud";
-import {IStudent} from "../../../models/students";
+import {IStudent} from "../../../../models/students";
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import {StudentsService} from "../../services/students.service";

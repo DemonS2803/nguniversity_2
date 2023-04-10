@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IStudent} from "../../../models/students";
+import {IStudent} from "../../../../models/students";
 import { StudentsService} from "../../services/students.service";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
+import {environment} from "../../../../../../environments/environment";
 //import {MessageService} from "../../../messages/message.service";
 
 @Component({
